@@ -1,0 +1,84 @@
+<style>
+     
+     
+     
+
+    .container {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+
+    button {
+        margin: 17px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: max-content;
+    }
+
+   
+
+    
+   
+</style>
+
+
+
+<div class="body">
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-control" required="true">
+                
+              </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Adress</label>
+              <input type="text" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" class="form-control" required="true">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Phone</label>
+              <input type="text" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" class="form-control" required="true">
+            </div>
+            
+            <button type="submit" (click)="register()"  class="btn btn-primary">Submit</button>
+            
+          </form>
+    </div>
+
+
+
+    <table class="table text-center">
+
+        <thead>
+    <tr>
+        <th>#</th>
+    <th>Name</th>
+    <th>Adress</th>
+    <th>Phone</th>
+    <th>Options</th>
+    </tr>
+        </thead>
+
+        <tbody>
+<tr *ngFor="let userItem  of UserArray">
+    <td></td>
+    <td >{{userItem.name | uppercase}}</td>
+    <td>{{userItem.address}}</td>
+    <td>{{userItem.phone}}</td>
+    <td>
+        
+        <button type="button" (click)="setDelete(userItem._id)" class="btn btn-danger" >Delete</button> 
+    </td>
+</tr>
+        </tbody>
+        
+    </table>
+    
+</div>
